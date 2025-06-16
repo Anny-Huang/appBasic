@@ -8,11 +8,16 @@ export default function CalgaryScreen() {
         style={styles.image}
       />
       <Text style={styles.title}>Welcome to Calgary </Text>
+      <Text style={styles.subtitle}>Go to city page</Text>
       <Text style={styles.info}>
       Calgary is a sunny, energetic city with a western vibe and big heart.
+       It’s home to the Calgary Stampede and sits just an hour from the Rocky Mountains. 
+       People love its friendly energy, clean streets, and outdoor lifestyle.
         Whether you're into festivals, tech, or hiking adventures, Calgary's got something for everyone — all with a backdrop of sweeping prairie skies and a touch of cowboy charm.
       </Text>
+    </View>
   );
+}
 
 const styles = StyleSheet.create({
   container: {
