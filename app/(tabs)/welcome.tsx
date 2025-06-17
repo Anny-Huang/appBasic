@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from "react-native";
 export default function WelcomeMessage() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the City Explorer App!</Text>
-      <Text style={styles.subtitle}>Use the tabs below to explore cities.</Text>
+      <Text style={styles.title}>Welcome to my new app!</Text>
+      {/* <Text style={styles.subtitle}>Use the tabs below to explore cities.</Text> */}
     </View>
   );
 }
