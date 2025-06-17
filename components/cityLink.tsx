@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, Pressable, StyleSheet, Linking } from "react-native";
+import { Text, Pressable, Linking } from "react-native";
+import styles from "./styles";
 
 interface Props {
   url: string;
@@ -18,14 +19,5 @@ const CityLink: React.FC<Props> = ({ url }) => {
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  linkText: {
-    fontSize: 16,
-    color: "#007AFF",
-    textDecorationLine: "underline",
-    marginBottom: 10,
-  },
-});
 
 export default CityLink;

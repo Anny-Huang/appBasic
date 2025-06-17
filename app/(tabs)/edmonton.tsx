@@ -14,8 +14,11 @@ export default function Edmonton() {
         resizeMode="cover"
       />
       <CityLink url="https://www.edmonton.ca/" />
-      <CityDetails info={cityInfo} />
-
+      <View
+        style={{ backgroundColor: "lightblue", borderRadius: 10, padding: 15 }}
+      >
+        <CityDetails info={cityInfo} />
+      </View>
     </View>
   );
 }
