@@ -7,8 +7,8 @@ const cityInfo = `Calgary is a vibrant city in Alberta, known for its beautiful 
 export default function Calgary() {
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Welcome to our new app!</Text>
       <Text style={styles.title}>Calgary</Text>
-      <Text>Welcome to our new app!</Text>
       <Image
         source={require("../../assets/banff.jpg")}
         style={styles.image}
