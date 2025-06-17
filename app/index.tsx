@@ -1,24 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { View, Image, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
 import SignInForm from "./signin";
-import WelcomeMessage from "./welcome";
 
-export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+export default function IndexPage() {
+  const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.replace("/welcome");
+    }
+  }, [isLoggedIn]);
 
   return (
     <View style={styles.container}>
       <Image
         source={require("../assets/food.jpg")}
         style={{ height: 300, width: "100%", resizeMode: "contain" }}
-      ></Image>
-      {isLoggedIn ? (
-        <WelcomeMessage />
-      ) : (
-        <SignInForm setIsLoggedIn={setIsLoggedIn} />
-      )}
-      <StatusBar style="auto" />
+      />
+      <SignInForm setIsLoggedIn={setIsLoggedIn} />
     </View>
   );
 }
@@ -30,5 +31,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
   },
- 
 });
