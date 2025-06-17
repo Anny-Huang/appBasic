@@ -8,6 +8,7 @@ export default function Calgary() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Calgary</Text>
+      <Text>Welcome to our new app!</Text>
       <Image
         source={require("../../assets/banff.jpg")}
         style={styles.image}

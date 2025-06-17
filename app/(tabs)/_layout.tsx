@@ -9,7 +9,7 @@ export default function TabsLayout() {
         headerShown: false,
       }}
     >
-      <Tabs.Screen name="welcome" options={{ title: "Welcome" }} />
+      {/* <Tabs.Screen name="welcome" options={{ title: "Welcome" }} /> */}
       <Tabs.Screen name="index" options={{ title: "Calgary" }} />
       <Tabs.Screen name="edmonton" options={{ title: "Edmonton" }} />
     </Tabs>

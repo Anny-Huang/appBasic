@@ -9,7 +9,7 @@ export default function IndexPage() {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.replace("/welcome");
+      router.replace("/(tabs)");
     }
   }, [isLoggedIn]);
 
