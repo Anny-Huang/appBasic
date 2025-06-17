@@ -28,8 +28,10 @@ const SignInForm: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
 
   const checkCredentials = () => {
     if (credentials) {
-        // check if user exist
-      const user = credentials.users.find((cred) => cred.username === userName.trim());
+      // check if user exist
+      const user = credentials.users.find(
+        (cred) => cred.username === userName.trim()
+      );
       if (!user) {
         Alert.alert("Error", "Username not found.");
         return;
@@ -45,15 +47,24 @@ const SignInForm: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
   };
 
   const handleLogin = () => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    if (userName.length < 5 && !passwordRegex.test(password)) {
+      Alert.alert(
+        "Error",
+        "Username must be at least 5 characters long. Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+      );
+      return;
+    }
     if (userName.length < 5) {
-      Alert.alert("Error","Username too short");
+      Alert.alert("Error", "Username must be at least 5 characters long.");
       return;
     }
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-
     if (!passwordRegex.test(password)) {
-      Alert.alert("Error","Incorrect Format");
+      Alert.alert(
+        "Error",
+        "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character."
+      );
       return;
     }
 
