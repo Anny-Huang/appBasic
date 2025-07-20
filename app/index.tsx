@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
-import SignInForm from "./signin";
 
 export default function IndexPage() {
   const router = useRouter();
