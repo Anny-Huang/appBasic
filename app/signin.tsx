@@ -32,7 +32,6 @@ export const SignInForm: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
   //       Alert.alert("Error", "Username not found.");
   //       return;
   //     }
-  
 
   const handleLogin = async () => {
 
@@ -61,12 +60,13 @@ export const SignInForm: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
     }
   };
 
-    useFocusEffect(
+  useFocusEffect(
     React.useCallback(() => {
       setEmail("");
       setPassword("");
     }, [])
   );
+
   console.log("🌀 Signin page rendered");
   return (
     <View style={styles.formStyle}>
@@ -87,27 +87,26 @@ export const SignInForm: React.FC<LoginProps> = ({ setIsLoggedIn }) => {
       <View style={styles.container}>
         <Text style={styles.labelStyles}>Password:</Text>
         <TextInput
-            placeholder="Please enter Password"
-            style={styles.inputFieldStyles}
-            secureTextEntry
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            autoCapitalize="none"
-            autoCorrect={false}
+          placeholder="Please enter Password"
+          style={styles.inputFieldStyles}
+          secureTextEntry
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          autoCapitalize="none"
+          autoCorrect={false}
         ></TextInput>
       </View>
       <Pressable style={styles.button} onPress={handleLogin}>
         <Text style={{ textAlign: "center" }}>Login</Text>
       </Pressable>
       <Pressable
-  style={{ marginTop: 15 }}
-  onPress={() => router.push("/signup")}
->
-  <Text style={{ color: "white", textAlign: "center" }}>
-    Sign up
-  </Text>
-</Pressable>
-
+        style={{ marginTop: 15 }}
+        onPress={() => router.push("/signup")}
+      >
+        <Text style={{ color: "white", textAlign: "center" }}>
+          Sign up
+        </Text>
+      </Pressable>
     </View>
   );
 };
@@ -154,6 +153,7 @@ const styles = StyleSheet.create({
     fontFamily: "serif",
   },
 });
+
 const SignInPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return <SignInForm setIsLoggedIn={setIsLoggedIn} />;

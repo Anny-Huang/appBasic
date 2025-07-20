@@ -75,7 +75,7 @@ export default function SignUpForm() {
   Alert.alert("Signup failed: could not save user info", insertError.message);
   return;
 }
-
+    await supabase.auth.signOut();
     Alert.alert("Success", "Account created! Please log in.");
     router.replace("/");
 
