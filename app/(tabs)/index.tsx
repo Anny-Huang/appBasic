@@ -1,7 +1,33 @@
 import { View, Text } from "react-native";
 import CityDetails from "../../components/cityDetails";
+import { useEffect, useState } from "react";
+import { supabase } from "../../lib/supabase";
+import Header from "../../components/Header";
+
 
 export default function Calgary() {
+  const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      if (error || !user) return;
+
+      const { data, error: detailsError } = await supabase
+        .from("user_details")
+        .select("first_name, last_name")
+        .eq("uuid", user.id)
+        .single();
+
+      if (!detailsError && data) {
+        const full = `${data.first_name} ${data.last_name}`;
+        setFullName(full);
+      }
+    };
+
+    fetchUserName();
+  }, []);
+
   const calgary = {
     name: "Calgary",
     image: require("../../assets/banff.jpg"),
@@ -11,6 +37,7 @@ export default function Calgary() {
 
   return (
     <View style={{ flex: 1 }}>
+      <Header title="Readiculous" showLogout />
       <Text
         style={{
           fontSize: 28,
@@ -19,7 +46,7 @@ export default function Calgary() {
           textAlign: "center",
         }}
       >
-        Welcome to our new app!
+        {fullName ? `Welcome, ${fullName}!` : "Welcome to our new app!"}
       </Text>
       <CityDetails city={calgary} />
     </View>

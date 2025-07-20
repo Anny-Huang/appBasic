@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 10,
   },
+      greeting: {
+    fontSize: 22,
+    color: "white",
+    marginVertical: 10,
+  },
 });
 
 export default styles;
